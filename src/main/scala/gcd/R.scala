@@ -33,25 +33,33 @@ class R extends Module {
             }
             is("b011".U){
                 //sltu
+
             }
             is("b100".U){
                 //xor
+                 Regout:=io.Regsi(.io.Instin(19,15)) ^ .io.Regsi(io.Instin(24,20))
             }
             is("b101".U){
                 switch (io.Instin(31,25)){
                     is("b0000000".U){
                         //srl
+                        Regout:=io.Regsi(.io.Instin(19,15)) >> .io.Regsi(io.Instin(24,20))
                     }
                     is("b0100000".U){
                         //sra
+
                     }
                 }
             }
             is("b110".U){
                 //or
+                 Regout:=io.Regsi(.io.Instin(19,15)) | .io.Regsi(io.Instin(24,20))
+
+
             }
             is("b111".U){
                 //and
+                 Regout:=io.Regsi(.io.Instin(19,15)) & .io.Regsi(io.Instin(24,20))
             }
         }
     }
